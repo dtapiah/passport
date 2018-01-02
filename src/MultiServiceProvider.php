@@ -27,7 +27,7 @@ class MultiServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__.'/config/editauth.php', 'auth.guards'
+            __DIR__.'/config/auth.php', 'auth.guards'
         );
     }
 }
