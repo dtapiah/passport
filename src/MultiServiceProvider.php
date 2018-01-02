@@ -1,10 +1,10 @@
 <?php
 
-namespace Jumpitt\Passport;
+namespace jumpitt\passport;
 
 use Illuminate\Support\ServiceProvider;
 
-class MultiPassportServiceProvider extends ServiceProvider
+class MultiServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
