@@ -13,7 +13,10 @@ class MultiServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->publishes([
+            __DIR__.'/views' => base_path('resources/views'),
+            __DIR__.'/middleware' => base_path('app/Http/Middleware'),
+        ]);
     }
 
     /**
@@ -23,6 +26,8 @@ class MultiServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->mergeConfigFrom(
+            __DIR__.'/config/editauth.php', 'auth.guards'
+        );
     }
 }
