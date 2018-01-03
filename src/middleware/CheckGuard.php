@@ -10,7 +10,7 @@ use App\Admin;
 use Lcobucci\JWT\Parser;
 use Laravel\Passport\TokenRepository;
 
-class Test
+class CheckGuard
 {
     /**
      * Handle an incoming request.
@@ -30,8 +30,6 @@ class Test
         $tokenRepository = new TokenRepository();
         $token= $tokenRepository->find($jwt->getClaim('jti'));
 
-        //dd($token->client_id);
-
         switch ($guard) {
             case 'admin':
                 $client_id = ADMIN::PASSPORT;
@@ -47,7 +45,7 @@ class Test
         if ($token->client_id == $client_id) {
             return $next($request);
         } else {
-            dd("no entras");
+            return response()->json(['error'=>'Unauthorised'], 401);
         }
 
     }
