@@ -1,18 +1,61 @@
 # Passport Multi-Auth
 
+
 ## Requirement
 
-| Laravel Passport |
-|------------------|
-| ^2.0             |
 
-## Installing and configuring
+- Create laravel project.
+
+```console
+$ composer create-project laravel/laravel "Name"
+
+```
+
+
+- Install auth.
+
+```console
+$ php artisan make:auth
+```
+
+
+- Config database in `.env` file.
+
+
+- Install `passport`.
+
+```console
+$ composer require laravel/passport
+```
+
+
+- Run migrations.
+
+```console
+$ php artisan migrate
+```
+
+
+- Create clients.
+
+```console
+$ php artisan passport:install
+```
+
+Create two more clients with ID 3 and 4.
+
+```console
+$ php artisan passport:client
+```
+
+
+## Installing and configuring package
+
 
 - Install with composer:
 
 ```console
 $ composer require danilo/passport ~1.1.0-a
-
 ```
 
 
@@ -42,7 +85,7 @@ $ php artisan migrate
 ```
 
 
-- Modify User Model, make it use `HasApiTokens` and add some constant for use as client_id from the `oauth _ clients` table.
+- Modify User Model, make it use `HasApiTokens` and add some constant for use as client_id from the `oauth_clients` table.
 
 ```php
 <?php
@@ -89,6 +132,9 @@ class Kernel extends HttpKernel
 ```
 
 
+## Basic usage
+
+
 - Add the 'provider' parameter in your request at `/oauth/token`:
 
 ```
@@ -119,7 +165,6 @@ use Illuminate\Http\Request;
 Route::group(['middleware' => ['check-guard:customer', 'auth:customer']], function(){
     Route::post('details', 'TestController@details');
 });
-
 ```
 
 
