@@ -11,7 +11,7 @@
 - Install with composer:
 
 ```console
-$ composer require danilo/passport ~1.0.5-a
+$ composer require danilo/passport ~1.1.0-a
 
 ```
 
@@ -67,7 +67,7 @@ class User extends Authenticatable
 ```
 
 
-- Register the middlewares `PassportCustomProvider` and `CheckGuard` on `$routeMiddleware` on `app/Http/Kernel`.
+- Register the published middlewares `PassportCustomProvider` and `CheckGuard` on `$routeMiddleware` on `app/Http/Kernel`.
 
 ```php
 
@@ -138,7 +138,7 @@ Response if is customer:
 {
     "success": {
         "id": 1,
-        "name": "nombre",
+        "name": "name",
         "email": "correocustomer@gmail.com",
         "created_at": "2018-01-03 13:11:25",
         "updated_at": "2018-01-03 13:11:25"
@@ -146,7 +146,7 @@ Response if is customer:
 }
 ```
 
-Response if isn't admin:
+Response if isn't customer:
 
 ```json
 {
