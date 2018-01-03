@@ -45,7 +45,7 @@ $ php artisan passport:install
 Create two more clients with ID 3 and 4.
 
 ```console
-$ php artisan passport:client
+$ php artisan passport:client --password
 ```
 
 
@@ -59,7 +59,7 @@ $ composer require danilo/passport ~1.1.0-a
 ```
 
 
-- Add:
+- Add provider to `config/app.php` file:
 
 ```php
     'providers' => [
